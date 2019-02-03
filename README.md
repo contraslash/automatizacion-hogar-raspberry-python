@@ -73,3 +73,23 @@ Finalizando muestro un ejemplo un poco mas aplicado usando SonOFF basic, un
 switch inteligente de bajo costo basado en el módulo ESP8266, donde se escribe 
 un servidor en python que controla el dispositivo sin cables, esto tarda 5 
 minutos, dejando el taller de 1 hora y 30 minutos aproximadamente.
+
+
+## Algunos enlaces útiles
+
+### Aproximaciones usando Modelos Ocultos de Markov
+- Suite de [CMU Sphinx](https://cmusphinx.github.io/)
+  - [Sphinx base](https://github.com/cmusphinx/sphinxbase)
+  - [Pocket Sphinx](https://github.com/cmusphinx/pocketsphinx)
+  - [Pocket Sphinx JS](https://syl22-00.github.io/pocketsphinx.js/)
+### Aproximaciones usando redes neuronales
+- [Deep Speech](https://arxiv.org/abs/1412.5567) con su [implementación en tensorflow](https://github.com/mozilla/DeepSpeech)
+
+
+### Wrappers
+- [Speech recognition](https://github.com/Uberi/speech_recognition)
+
+
+### Un poco de electrónica
+- [Raspberry Pi: Control Relay switch via GPIO](https://tutorials-raspberrypi.com/raspberry-pi-control-relay-switch-via-gpio/)
+- [Sonoff switch complete hack without firmware upgrade](https://blog.ipsumdomus.com/sonoff-switch-complete-hack-without-firmware-upgrade-1b2d6632c01)

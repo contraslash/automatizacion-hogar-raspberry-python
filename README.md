@@ -93,3 +93,5 @@ minutos, dejando el taller de 1 hora y 30 minutos aproximadamente.
 ### Un poco de electrónica
 - [Raspberry Pi: Control Relay switch via GPIO](https://tutorials-raspberrypi.com/raspberry-pi-control-relay-switch-via-gpio/)
 - [Sonoff switch complete hack without firmware upgrade](https://blog.ipsumdomus.com/sonoff-switch-complete-hack-without-firmware-upgrade-1b2d6632c01)
+- [Controlling AC Devices with Raspberry PI](https://electronicshobbyists.com/controlling-ac-devices-with-raspberry-pi-raspberry-pi-relay-control/)
+- [GPIO Docs](https://www.raspberrypi.org/documentation/usage/gpio/)

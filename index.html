@@ -161,7 +161,7 @@ with sr.Microphone() as source:
     audio = r.listen(source)
 
 # Llamar al reconocedor de Google
-GOOGLE_CLOUD_CREDENTIALS = """JSON_CON_CREDENCIALES"""
+GOOGLE_CLOUD_CREDENTIALS = r"""JSON_CON_CREDENCIALES"""
 try:
 print(r.recognize_google_cloud(
     audio,

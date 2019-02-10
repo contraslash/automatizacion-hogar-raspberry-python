@@ -69,6 +69,10 @@ class: center
 # Disclaimer
 - No es un taller de IOT
 ---
+class: center
+# Modelo de cajas de un asistente conversacional
+![Conversational assistant](img/conversational_assistant.png)
+---
 # Reconocimiento automático de la voz (ASR)
 
 - 1952 Audrey por IBM (Reconocimiento de dígitos)
@@ -123,6 +127,144 @@ class: center
 # Modelado acústico
 ![Hidden Markov Models](img/hmm.png)
 Modelos Ocultos de Markov
+---
+class: center
+# Modelado de lenguaje
+![ngrams](img/ngrams.png)
+
+N-Gramas
+
+---
+# [Speech Recognition](https://pypi.org/project/SpeechRecognition/)
+
+Wrapper:
+
+- [CMU Sphinx](http://cmusphinx.sourceforge.net/wiki/) (works offline)
+- [Google Cloud Speech API](https://cloud.google.com/speech/)
+- [Wit.ai](https://wit.ai/)
+- [Microsoft Bing Voice Recognition](https://www.microsoft.com/cognitive-services/en-us/speech-api)
+- [Houndify API](https://houndify.com/)
+- [IBM Speech to Text](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/speech-to-text.html)
+- [Snowboy Hotword Detection](https://snowboy.kitt.ai/) (works offline)
+
+Interacción con el micrófono requiere [PyAudio](https://pypi.org/project/PyAudio/)
+
+---
+# Google Speech
+```python
+import speech_recognition as sr
+
+# Obtener el audio del micrófono
+r = sr.Recognizer()
+with sr.Microphone() as source:
+    print("Diga algo")
+    audio = r.listen(source)
+
+# Llamar al reconocedor de Google
+GOOGLE_CLOUD_CREDENTIALS = """JSON_CON_CREDENCIALES"""
+try:
+print(r.recognize_google_cloud(
+    audio,
+    credentials_json=GOOGLE_CLOUD_SPEECH_CREDENTIALS
+    )
+)
+except sr.UnknownValueError:
+    print("Google Cloud Speech no pudo reconocer su audio")
+```
+---
+# SnowBoy
+```python
+import speech_recognition as sr
+
+# Obtener el audio del micrófono
+r = sr.Recognizer()
+with sr.Microphone() as source:
+    print("Diga algo")
+    audio = r.listen(source)
+
+# Llamar al reconocedor de Snowboy
+try:
+    print(
+        r.snowboy_wait_for_hot_word(
+            "ruta_a_la_carpeta_de_snowboy",
+            "archivo de activación",
+            audio
+        ))
+except sr.UnknownValueError:
+    print("Sphinx could not understand audio")
+except sr.RequestError as e:
+    print("Sphinx error; {0}".format(e))
+```
+---
+# Reconocimiento con otros backends
+[Wit.ai](https://wit.ai/)
+```python
+WIT_AI_KEY = "llave_de_32_caracteres_de_wit_ai"
+r.recognize_wit(audio, key=WIT_AI_KEY)
+```
+[Microsoft Bing Voice Recognition](https://www.microsoft.com/cognitive-services/en-us/speech-api>)
+```python
+BING_KEY = "llave_de_32_caracteres_de_bing"
+r.recognize_bing(audio, key=BING_KEY)
+```
+[IBM Speech to Text](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/speech-to-text.html)
+
+```python
+IBM_USERNAME = "Nombre de usuario de IBM para Speech XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+IBM_PASSWORD = "Contraseña de usuario de IBM"
+r.recognize_ibm(audio, username=IBM_USERNAME, password=IBM_PASSWORD)
+```
+---
+class: center
+# Conexiones entre el Relay y el Raspberry
+![Schematics](https://i1.wp.com/electronicshobbyists.com/wp-content/uploads/2018/02/relay-AC.png)
+[Controlling AC Devices with Raspberry Pi | Raspberry Pi Relay Control](https://electronicshobbyists.com/controlling-ac-devices-with-raspberry-pi-raspberry-pi-relay-control/)
+---
+# Encender el bombillo
+```python
+import RPi.GPIO as GPIO
+
+def configure(pin):
+    # Define mode to Broadcom SOC Channel
+    GPIO.setmode(GPIO.BCM)
+    # Define the pin as output
+    GPIO.setup(pin, GPIO.OUT)
+
+def change_state(pin, state):
+    # Remember that the pin must be set as output and state must be 0 or 1
+    GPIO.output(pin, state)
+
+def cleanup():
+    GPIO.cleanup()
+```
+
+[GPIO official documentation](https://www.raspberrypi.org/documentation/usage/gpio/)
+---
+# CMU Sphinx
+```python
+import speech_recognition as sr
+
+# Obtener el audio del micrófono
+r = sr.Recognizer()
+with sr.Microphone() as source:
+    print("Diga algo")
+    audio = r.listen(source)
+
+# Llamar al reconocedor de sphinx
+try:
+    print(
+        r.recognize_sphinx(
+            audio,
+            (
+                "ruta_al_modelo_acustico",
+                "ruta_al_modelo_de_lenguaje",
+                "ruta_al_diccionario",
+            )
+        )
+    )
+except sr.UnknownValueError:
+    print("Sphinx no pudo reconocer su audio")
+```
 </textarea>
 <script src="vendor/remark/remark.min.js">
 </script>

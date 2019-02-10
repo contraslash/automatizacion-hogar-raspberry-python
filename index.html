@@ -176,6 +176,29 @@ Instalar google-api-python-client
 ```python
 pip install google-api-python-client
 ```
+
+---
+# Leyendo desde un audio
+```python
+import speech_recognition as sr
+import os
+
+# obtain audio from the microphone
+
+AUDIO_FILE = "ruta_absoluta o relativa"
+r = sr.Recognizer()
+with sr.AudioFile(AUDIO_FILE) as source:
+    audio = r.record(source)  # read the entire audio file
+
+GOOGLE_CLOUD_SPEECH_CREDENTIALS = r"""CREDENTIALS"""
+try:
+    print("Google Cloud Speech thinks you said " + r.recognize_google_cloud(audio, credentials_json=GOOGLE_CLOUD_SPEECH_CREDENTIALS))
+except sr.UnknownValueError:
+    print("Google Cloud Speech could not understand audio")
+except sr.RequestError as e:
+    print("Could not request results from Google Cloud Speech service; {0}".format(e))
+
+```
 ---
 # SnowBoy
 ```python

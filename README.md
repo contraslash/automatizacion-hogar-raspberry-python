@@ -82,7 +82,7 @@ minutos, dejando el taller de 1 hora y 30 minutos aproximadamente.
   - [Sphinx base](https://github.com/cmusphinx/sphinxbase)
   - [Pocket Sphinx](https://github.com/cmusphinx/pocketsphinx)
   - [Pocket Sphinx JS](https://syl22-00.github.io/pocketsphinx.js/)
-### Aproximaciones usando redes neuronales
+### Aproximaciones usando red es neuronales
 - [Deep Speech](https://arxiv.org/abs/1412.5567) con su [implementación en tensorflow](https://github.com/mozilla/DeepSpeech)
 
 
@@ -95,3 +95,7 @@ minutos, dejando el taller de 1 hora y 30 minutos aproximadamente.
 - [Sonoff switch complete hack without firmware upgrade](https://blog.ipsumdomus.com/sonoff-switch-complete-hack-without-firmware-upgrade-1b2d6632c01)
 - [Controlling AC Devices with Raspberry PI](https://electronicshobbyists.com/controlling-ac-devices-with-raspberry-pi-raspberry-pi-relay-control/)
 - [GPIO Docs](https://www.raspberrypi.org/documentation/usage/gpio/)
+- [Configuring Son Off for custom images](https://www.youtube.com/watch?v=BHzsWwd351I)
+- [Installing sonoff Tamsota](https://www.youtube.com/watch?v=IcOFeIcLFFo)
+- [ESPTool](https://github.com/espressif/esptool)
+- [Sonoff-Tasmota](https://github.com/arendst/Sonoff-Tasmota)

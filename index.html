@@ -225,6 +225,32 @@ except sr.RequestError as e:
     print("Sphinx error; {0}".format(e))
 ```
 ---
+# CMU Sphinx
+```python
+import speech_recognition as sr
+
+# Obtener el audio del micrófono
+r = sr.Recognizer()
+with sr.Microphone() as source:
+    print("Diga algo")
+    audio = r.listen(source)
+
+# Llamar al reconocedor de sphinx
+try:
+    print(
+        r.recognize_sphinx(
+            audio,
+            (
+                "ruta_al_modelo_acustico",
+                "ruta_al_modelo_de_lenguaje",
+                "ruta_al_diccionario",
+            )
+        )
+    )
+except sr.UnknownValueError:
+    print("Sphinx no pudo reconocer su audio")
+```
+---
 # Reconocimiento con otros backends
 [Wit.ai](https://wit.ai/)
 ```python
@@ -268,32 +294,22 @@ def cleanup():
 ```
 
 [GPIO official documentation](https://www.raspberrypi.org/documentation/usage/gpio/)
+
 ---
-# CMU Sphinx
-```python
-import speech_recognition as sr
+class: center
+# Sonoff
+![Sonoff](https://cdn3.efectoled.com/46645/interruptor-wifi-simple-remoto-sonoff-rf.jpg)
 
-# Obtener el audio del micrófono
-r = sr.Recognizer()
-with sr.Microphone() as source:
-    print("Diga algo")
-    audio = r.listen(source)
+---
+# Configuración DIY
 
-# Llamar al reconocedor de sphinx
-try:
-    print(
-        r.recognize_sphinx(
-            audio,
-            (
-                "ruta_al_modelo_acustico",
-                "ruta_al_modelo_de_lenguaje",
-                "ruta_al_diccionario",
-            )
-        )
-    )
-except sr.UnknownValueError:
-    print("Sphinx no pudo reconocer su audio")
-```
+- [FTDI 232](https://www.amazon.com/HiLetgo-FT232RL-Converter-Adapter-Breakout/dp/B00IJXZQ7C/)
+- [Sonoff Basic](https://www.itead.cc/smart-home/sonoff-wifi-wireless-switch.html)
+- 4x1 Female Header
+- Soldador eléctrico
+- Jumpers
+
+
 </textarea>
 <script src="vendor/remark/remark.min.js">
 </script>
